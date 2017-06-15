@@ -21,8 +21,10 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.allowsMultipleSelection = true
+        //self.tableView.separatorStyle = .none
+        self.tableView.separatorInset = .zero
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = true
@@ -35,7 +37,9 @@ class ListTableViewController: UITableViewController {
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
                 self.loadMusic()
-                self.tableView.reloadData()
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
             } else {
                 self.displayMediaLibraryError()
             }
@@ -68,6 +72,7 @@ class ListTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.textLabel!.text = item.title
+        cell.detailTextLabel!.text = item.album
         if item.selected {
             cell.accessoryType = .checkmark
         } else {
@@ -96,6 +101,10 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func loadMusic() {
         let albumTitleFilter = MPMediaPropertyPredicate(value: false, forProperty: MPMediaItemPropertyHasProtectedAsset, comparisonType: MPMediaPredicateComparison.contains)
         
@@ -106,6 +115,7 @@ class ListTableViewController: UITableViewController {
         for item in query.items! {
             let track = MusicTrack()
             track.title = item.title!
+            track.album = item.albumTitle!
             track.selected = false
             self.music.append(track)
         }

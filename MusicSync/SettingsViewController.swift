@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.statusLabel.text = self.list.status
+        // self.statusLabel.text = self.list.status
     }
 
     override func didReceiveMemoryWarning() {
