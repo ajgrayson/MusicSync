@@ -9,36 +9,41 @@
 import UIKit
 import MediaPlayer
 
-class ListTableViewController: UITableViewController, BLEDelegate {
+class ListTableViewController: UITableViewController {
 
-    var ble : BLE!
-    
-    var device : CBPeripheral?
-    
     var status = "Searching"
     
-    @IBAction func connectClicked(sender: AnyObject) {
-        self.findDevice()
+    var music : [MusicTrack]!
+    
+    @IBAction func connectClicked(_ sender: AnyObject) {
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.allowsMultipleSelection = true
+        
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
+        self.music = []
         
-        ble = BLE()
-        ble.controlSetup()
-        ble.delegate = self
+        MPMediaLibrary.requestAuthorization { (status) in
+            if status == .authorized {
+                self.loadMusic()
+                self.tableView.reloadData()
+            } else {
+                self.displayMediaLibraryError()
+            }
+        }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,113 +53,77 @@ class ListTableViewController: UITableViewController, BLEDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return MPMediaQuery.songsQuery().items.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.music.count
     }
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as UITableViewCell
 
-        var item = MPMediaQuery.songsQuery().items[indexPath.item] as MPMediaItem
+        let item = self.music[indexPath.item]
         
         // Configure the cell...
         cell.textLabel!.text = item.title
+        if item.selected {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         
         return cell
     }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "openSettings") {
-            var vc : SettingsViewController = segue.destinationViewController as SettingsViewController
-            
-            vc.list = self
-        } else if (segue.identifier == "openTrack") {
-            var vc : TrackViewController = segue.destinationViewController as TrackViewController
-            
-            vc.list = self
-            
-            var track = MPMediaQuery.songsQuery().items[self.tableView.indexPathForSelectedRow()!.item] as MPMediaItem
-            
-            vc.track =  track
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let track = self.music[indexPath.item]
+        track.selected = false
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
         }
     }
     
-    // MARK: - BLE
-    
-    func connectionTimer(timer: NSTimer) {
-        self.device = nil
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let track = self.music[indexPath.item]
+        track.selected = true
         
-        if(self.ble.peripherals != nil && self.ble.peripherals.count > 0) {
-            var i = 0, len = self.ble.peripherals.count;
-            for(i = 0; i < len; i++) {
-                var p : CBPeripheral = self.ble.peripherals.objectAtIndex(i) as CBPeripheral
-                if(p.identifier != nil && p.identifier.UUIDString == "FE618D99-88A7-0E49-47EF-4A9062908AAC") {
-                    self.device = p
-                    self.status = "Connecting"
-                    println("->Connecting");
-                    self.ble.connectPeripheral(self.device)
-                }
-            }
-        }
-        
-        if(self.device == nil) {
-            self.findDevice()
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+            
         }
     }
     
-    func refreshPeripherals() {
-        self.status = "Searching"
-        println("->Searching");
+    func loadMusic() {
+        let albumTitleFilter = MPMediaPropertyPredicate(value: false, forProperty: MPMediaItemPropertyHasProtectedAsset, comparisonType: MPMediaPredicateComparison.contains)
         
-//        if(self.ble.activePeripheral != nil) {
-//            return;
-//        }
+        let myFilterSet: Set<MPMediaPropertyPredicate> = [albumTitleFilter]
         
-        if(self.ble.peripherals != nil) {
-            self.ble.peripherals = nil
+        let query = MPMediaQuery(filterPredicates: myFilterSet)
+        
+        for item in query.items! {
+            let track = MusicTrack()
+            track.title = item.title!
+            track.selected = false
+            self.music.append(track)
         }
-        
-        self.ble.findBLEPeripherals(3)
-        
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "connectionTimer:", userInfo: nil, repeats: false)
-    }
-    
-    func findDevice() {
-        //self.ble.connectPeripheral()
-        self.refreshPeripherals()
-    }
-    
-    func bleDidConnect()
-    {
-        println("->Connected");
-        self.status = "Connected"
-        //self.navigationItem.leftBarButtonItem?.title = "Connected"
-        //self.navigationItem.leftBarButtonItem?.enabled = false
-    }
-    
-    func bleDidDisconnect()
-    {
-        println("->Disconnected");
-        self.status = "Disconnected"
-        //self.navigationItem.leftBarButtonItem?.title = "Connect"
-        //self.navigationItem.leftBarButtonItem?.enabled = true
-        self.findDevice()
-    }
-    
-    func bleDidReceiveData(data: UnsafeMutablePointer<UInt8>, length: Int32) {
-        
     }
 
+    func displayMediaLibraryError() {
+        var error: String
+        switch MPMediaLibrary.authorizationStatus() {
+        case .restricted:
+            error = "Media library access restricted by corporate or parental settings"
+        case .denied:
+            error = "Media library access denied by user"
+        default:
+            error = "Unknown error"
+        }
+        
+        let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(controller, animated: true, completion: nil)
+    }
 }

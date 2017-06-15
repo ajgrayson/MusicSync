@@ -7,17 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D54E351EF2E9B000269C49 /* MusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D54E341EF2E9B000269C49 /* MusicTrack.swift */; };
 		725F631B1A5D103A00B0B2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F631A1A5D103A00B0B2DF /* AppDelegate.swift */; };
 		725F63201A5D103A00B0B2DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725F631E1A5D103A00B0B2DF /* Main.storyboard */; };
 		725F63221A5D103A00B0B2DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725F63211A5D103A00B0B2DF /* Images.xcassets */; };
 		725F63251A5D103A00B0B2DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725F63231A5D103A00B0B2DF /* LaunchScreen.xib */; };
 		725F63311A5D103A00B0B2DF /* MusicSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F63301A5D103A00B0B2DF /* MusicSyncTests.swift */; };
 		728C1A771A5FB16500304B84 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A761A5FB16500304B84 /* ListTableViewController.swift */; };
-		728C1A7C1A5FB63C00304B84 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A7A1A5FB63C00304B84 /* BLE.m */; };
-		728C1A7F1A5FB77D00304B84 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A7E1A5FB77D00304B84 /* BLEDevice.swift */; };
 		728C1A811A5FB94E00304B84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A801A5FB94E00304B84 /* SettingsViewController.swift */; };
-		728C1A831A5FC51A00304B84 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A821A5FC51A00304B84 /* TrackViewController.swift */; };
-		728C1A851A60C8CB00304B84 /* FilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A841A60C8CB00304B84 /* FilesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52D54E341EF2E9B000269C49 /* MusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTrack.swift; sourceTree = "<group>"; };
 		725F63151A5D103A00B0B2DF /* MusicSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725F63191A5D103A00B0B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725F631A1A5D103A00B0B2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,14 +39,7 @@
 		725F632F1A5D103A00B0B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725F63301A5D103A00B0B2DF /* MusicSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSyncTests.swift; sourceTree = "<group>"; };
 		728C1A761A5FB16500304B84 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		728C1A791A5FB63C00304B84 /* BLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLE.h; sourceTree = "<group>"; };
-		728C1A7A1A5FB63C00304B84 /* BLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLE.m; sourceTree = "<group>"; };
-		728C1A7B1A5FB63C00304B84 /* BLEDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDefines.h; sourceTree = "<group>"; };
-		728C1A7D1A5FB67200304B84 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		728C1A7E1A5FB77D00304B84 /* BLEDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
 		728C1A801A5FB94E00304B84 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		728C1A821A5FC51A00304B84 /* TrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
-		728C1A841A60C8CB00304B84 /* FilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,18 +81,14 @@
 		725F63171A5D103A00B0B2DF /* MusicSync */ = {
 			isa = PBXGroup;
 			children = (
-				728C1A781A5FB63C00304B84 /* BLE */,
 				725F631A1A5D103A00B0B2DF /* AppDelegate.swift */,
 				728C1A761A5FB16500304B84 /* ListTableViewController.swift */,
-				728C1A821A5FC51A00304B84 /* TrackViewController.swift */,
-				728C1A841A60C8CB00304B84 /* FilesTableViewController.swift */,
 				728C1A801A5FB94E00304B84 /* SettingsViewController.swift */,
 				725F631E1A5D103A00B0B2DF /* Main.storyboard */,
 				725F63211A5D103A00B0B2DF /* Images.xcassets */,
 				725F63231A5D103A00B0B2DF /* LaunchScreen.xib */,
 				725F63181A5D103A00B0B2DF /* Supporting Files */,
-				728C1A7D1A5FB67200304B84 /* Bridging-Header.h */,
-				728C1A7E1A5FB77D00304B84 /* BLEDevice.swift */,
+				52D54E341EF2E9B000269C49 /* MusicTrack.swift */,
 			);
 			path = MusicSync;
 			sourceTree = "<group>";
@@ -129,16 +116,6 @@
 				725F632F1A5D103A00B0B2DF /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		728C1A781A5FB63C00304B84 /* BLE */ = {
-			isa = PBXGroup;
-			children = (
-				728C1A791A5FB63C00304B84 /* BLE.h */,
-				728C1A7A1A5FB63C00304B84 /* BLE.m */,
-				728C1A7B1A5FB63C00304B84 /* BLEDefines.h */,
-			);
-			path = BLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,14 +162,17 @@
 		725F630D1A5D103A00B0B2DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Johnathan Grayson";
 				TargetAttributes = {
 					725F63141A5D103A00B0B2DF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CD7HSD9D72;
+						LastSwiftMigration = 0830;
 					};
 					725F63291A5D103A00B0B2DF = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 725F63141A5D103A00B0B2DF;
 					};
 				};
@@ -241,12 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				728C1A7C1A5FB63C00304B84 /* BLE.m in Sources */,
-				728C1A7F1A5FB77D00304B84 /* BLEDevice.swift in Sources */,
 				725F631B1A5D103A00B0B2DF /* AppDelegate.swift in Sources */,
+				52D54E351EF2E9B000269C49 /* MusicTrack.swift in Sources */,
 				728C1A811A5FB94E00304B84 /* SettingsViewController.swift in Sources */,
-				728C1A851A60C8CB00304B84 /* FilesTableViewController.swift in Sources */,
-				728C1A831A5FC51A00304B84 /* TrackViewController.swift in Sources */,
 				728C1A771A5FB16500304B84 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,15 +279,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -344,8 +325,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -353,6 +336,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -362,6 +346,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -370,10 +355,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CD7HSD9D72;
 				INFOPLIST_FILE = MusicSync/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/MusicSync/Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -381,10 +369,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CD7HSD9D72;
 				INFOPLIST_FILE = MusicSync/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/MusicSync/Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -402,7 +393,9 @@
 				);
 				INFOPLIST_FILE = MusicSyncTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicSync.app/MusicSync";
 			};
 			name = Debug;
@@ -417,7 +410,9 @@
 				);
 				INFOPLIST_FILE = MusicSyncTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicSync.app/MusicSync";
 			};
 			name = Release;
