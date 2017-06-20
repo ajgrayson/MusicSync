@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		52D54E351EF2E9B000269C49 /* MusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D54E341EF2E9B000269C49 /* MusicTrack.swift */; };
+		52DBFAC11EF7B26A0017BEC7 /* UISyncTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBFAC01EF7B26A0017BEC7 /* UISyncTableViewController.swift */; };
+		52DBFACA1EF7BD3F0017BEC7 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DBFAC91EF7BD3F0017BEC7 /* FileUploader.swift */; };
 		725F631B1A5D103A00B0B2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F631A1A5D103A00B0B2DF /* AppDelegate.swift */; };
 		725F63201A5D103A00B0B2DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725F631E1A5D103A00B0B2DF /* Main.storyboard */; };
 		725F63221A5D103A00B0B2DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725F63211A5D103A00B0B2DF /* Images.xcassets */; };
 		725F63251A5D103A00B0B2DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725F63231A5D103A00B0B2DF /* LaunchScreen.xib */; };
 		725F63311A5D103A00B0B2DF /* MusicSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725F63301A5D103A00B0B2DF /* MusicSyncTests.swift */; };
 		728C1A771A5FB16500304B84 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A761A5FB16500304B84 /* ListTableViewController.swift */; };
-		728C1A811A5FB94E00304B84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C1A801A5FB94E00304B84 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		52D54E341EF2E9B000269C49 /* MusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTrack.swift; sourceTree = "<group>"; };
+		52DBFAC01EF7B26A0017BEC7 /* UISyncTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISyncTableViewController.swift; sourceTree = "<group>"; };
+		52DBFAC91EF7BD3F0017BEC7 /* FileUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
 		725F63151A5D103A00B0B2DF /* MusicSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725F63191A5D103A00B0B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725F631A1A5D103A00B0B2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		725F632F1A5D103A00B0B2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725F63301A5D103A00B0B2DF /* MusicSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSyncTests.swift; sourceTree = "<group>"; };
 		728C1A761A5FB16500304B84 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		728C1A801A5FB94E00304B84 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +85,13 @@
 			children = (
 				725F631A1A5D103A00B0B2DF /* AppDelegate.swift */,
 				728C1A761A5FB16500304B84 /* ListTableViewController.swift */,
-				728C1A801A5FB94E00304B84 /* SettingsViewController.swift */,
+				52DBFAC01EF7B26A0017BEC7 /* UISyncTableViewController.swift */,
 				725F631E1A5D103A00B0B2DF /* Main.storyboard */,
 				725F63211A5D103A00B0B2DF /* Images.xcassets */,
 				725F63231A5D103A00B0B2DF /* LaunchScreen.xib */,
 				725F63181A5D103A00B0B2DF /* Supporting Files */,
 				52D54E341EF2E9B000269C49 /* MusicTrack.swift */,
+				52DBFAC91EF7BD3F0017BEC7 /* FileUploader.swift */,
 			);
 			path = MusicSync;
 			sourceTree = "<group>";
@@ -221,9 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52DBFAC11EF7B26A0017BEC7 /* UISyncTableViewController.swift in Sources */,
 				725F631B1A5D103A00B0B2DF /* AppDelegate.swift in Sources */,
+				52DBFACA1EF7BD3F0017BEC7 /* FileUploader.swift in Sources */,
 				52D54E351EF2E9B000269C49 /* MusicTrack.swift in Sources */,
-				728C1A811A5FB94E00304B84 /* SettingsViewController.swift in Sources */,
 				728C1A771A5FB16500304B84 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

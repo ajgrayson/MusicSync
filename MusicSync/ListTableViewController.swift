@@ -10,13 +10,11 @@ import UIKit
 import MediaPlayer
 
 class ListTableViewController: UITableViewController {
-
-    var status = "Searching"
     
     var music : [MusicTrack]!
     
     @IBAction func connectClicked(_ sender: AnyObject) {
-        
+        self.reload()
     }
     
     override func viewDidLoad() {
@@ -53,6 +51,20 @@ class ListTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "openSyncView") {
+            let svc = segue.destination as! UISyncTableViewController;
+            
+            
+            let selectedTracks = self.music.filter() {
+                let track = $0 as MusicTrack
+                return track.selected
+            }
+            
+            svc.tracksToSync = selectedTracks
+        }
     }
 
     // MARK: - Table view data source
@@ -105,6 +117,14 @@ class ListTableViewController: UITableViewController {
         return 60
     }
     
+    func reload() {
+        self.music = []
+        self.loadMusic()
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
+    
     func loadMusic() {
         let albumTitleFilter = MPMediaPropertyPredicate(value: false, forProperty: MPMediaItemPropertyHasProtectedAsset, comparisonType: MPMediaPredicateComparison.contains)
         
@@ -113,11 +133,14 @@ class ListTableViewController: UITableViewController {
         let query = MPMediaQuery(filterPredicates: myFilterSet)
         
         for item in query.items! {
-            let track = MusicTrack()
-            track.title = item.title!
-            track.album = item.albumTitle!
-            track.selected = false
-            self.music.append(track)
+            if(item.assetURL != nil) {
+                let track = MusicTrack()
+                track.title = item.title!
+                track.album = item.albumTitle!
+                track.selected = false
+                track.path = item.assetURL
+                self.music.append(track)
+            }
         }
     }
 

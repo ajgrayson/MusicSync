@@ -13,5 +13,5 @@ class MusicTrack: NSObject {
     var title : String!
     var selected : Bool!
     var album : String!
-    
+    var path : URL!
 }
